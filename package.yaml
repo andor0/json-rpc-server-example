@@ -1,0 +1,60 @@
+name:                json-rpc-server-example
+version:             0.1.0.0
+github:              "githubuser/json-rpc-server-example"
+license:             BSD3
+author:              "Andrei Orlov"
+maintainer:          "aaorlov1@gmail.com"
+copyright:           "2019 Andrei Orlov"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/json-rpc-server-example#readme>
+
+dependencies:
+- aeson >= 1.4.6.0 && < 1.5
+- base >= 4.7 && < 5
+- bytestring >= 0.10.8.2 && < 0.11
+- conduit >= 1.3.1.2 && < 1.4
+- json-rpc-server >= 0.2.2.0 && < 0.3
+- mtl >= 2.2.2 && < 2.3
+- monad-logger >= 0.3.31 && < 0.4
+- persistent >= 2.9.2 && < 2.10
+- persistent-sqlite >= 2.9.3 && < 2.10
+- persistent-template >= 2.6.0 && < 2.7
+- scotty >= 0.11.5 && < 0.12
+- text >= 1.2.3.1 && < 1.3
+- unliftio-core >= 0.1.2.0 && < 0.2
+
+library:
+  source-dirs: src
+
+executables:
+  json-rpc-server-example-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - json-rpc-server-example
+
+tests:
+  json-rpc-server-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - json-rpc-server-example
